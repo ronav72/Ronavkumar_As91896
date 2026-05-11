@@ -1,5 +1,8 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+
+
+
 root = tk.Tk()
 
 
@@ -15,7 +18,7 @@ root.title("New Zealand History Quiz")
 root.geometry("850x650")
 
 
-
+#opens image
 image = Image.open("Intro image .png")
 resized_image = image.resize((850,650))
 #converts the image into a format Tkinter can understand
@@ -28,7 +31,35 @@ label.pack()
 
 
 
+def Start():
+    print("Button clicked!")
 
+
+
+#creating a button to go to the next page
+button = tk.Button(root,
+                   text="START",
+                   command = Start(),
+                   activebackground="light gray",
+                   activeforeground="white",
+                   anchor="center",
+                   bd=3,
+                   bg="#122522",
+                   cursor="hand2",
+                   disabledforeground="gray",
+                   fg="white",
+                   font=("Telegraf", 30),
+                   height=2,
+                   highlightbackground="black",
+                   highlightcolor = "green",
+                   highlightthickness=2,
+                   justify="center",
+                   overrelief="raised",
+                   padx=10,
+                   pady=10,
+                   width=10,
+                   wraplength=100)
+button.pack()
 
 
 
