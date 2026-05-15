@@ -19,7 +19,7 @@ root.geometry("850x650")
 
 
 #opens image
-image = Image.open("Intro image .png")
+image = Image.open("Intro image without button.png")
 resized_image = image.resize((850,650))
 #converts the image into a format Tkinter can understand
 img = ImageTk.PhotoImage(resized_image)
@@ -44,7 +44,7 @@ button = tk.Button(root,
                    activeforeground="white",
                    anchor="center",
                    bd=3,
-                   bg="#122522",g
+                   bg="#122522",
                    cursor="hand2",
                    disabledforeground="gray",
                    fg="white",
