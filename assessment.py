@@ -1,5 +1,27 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+names=[] #this will keep track of players names
+
+
+class QuizStarter:
+    def init (self, parent):
+        # Making a Frame to hold widgets
+        self.quiz_frame = frame(parent, padx=100, pady=100)
+        self.quiz_frame.grid()
+
+
+        #creating a label to hold the username
+        self.user_label=label(self.quiz_frame, text="Please enter your name below:",font=("Tw cen MT", "18", "bold"))
+        self.user_label.grid(row=1, padx=20, pady=20)
+
+        #making a box for users to enter their name\
+        self.entry_box=Entry(self.quiz_frame)
+        self.entry_box.grid(row=2, padx=20, pady=20)
+
+
+
+
+
 
 
 
