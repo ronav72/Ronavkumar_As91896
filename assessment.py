@@ -18,8 +18,8 @@ root = tk.Tk()
 # Making a Frame to hold widgets
 frame=tk.Frame(root, padx=100, pady=100)
 frame.pack(padx=100, pady=100)
-
-
+button=tk.Button(frame,text="hello world")
+button.pack()
 # Quiz Homepage
 
 #title of gui window
@@ -40,10 +40,12 @@ label.image = img
 #label.pack displays that label inside the window
 label.place(relx=0.5, rely=0.5,anchor="center" )
 
-button=tk.Button(root, text="Continue")
+
+#creating button to continue to the next page
+button=tk.Button(root, text="Continue", height=2, width=7)
 button.pack(pady=100, padx=100,     )
 #placing the buttons positon
-button.place(x=400, y=500)
+button.place(x=375, y=500)
 
 
 
