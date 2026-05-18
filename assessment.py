@@ -3,20 +3,8 @@ from PIL import Image, ImageTk
 names=[] #this will keep track of players names
 
 
-class QuizStarter:
-    def init (self, parent):
-        # Making a Frame to hold widgets
-        self.quiz_frame = frame(parent, padx=100, pady=100)
-        self.quiz_frame.grid()
 
 
-        #creating a label to hold the username
-        self.user_label=label(self.quiz_frame, text="Please enter your name below:",font=("Tw cen MT", "18", "bold"))
-        self.user_label.grid(row=1, padx=20, pady=20)
-
-        #making a box for users to enter their name\
-        self.entry_box=Entry(self.quiz_frame)
-        self.entry_box.grid(row=2, padx=20, pady=20)
 
 
 
@@ -27,8 +15,9 @@ class QuizStarter:
 
 root = tk.Tk()
 
-
-
+# Making a Frame to hold widgets
+frame=tk.Frame(root, padx=100, pady=100)
+frame.pack(padx=100, pady=100)
 
 
 # Quiz Homepage
@@ -49,44 +38,12 @@ label = tk.Label(image=img)
 #creating label that holds widget inside the window
 label.image = img
 #label.pack displays that label inside the window
-label.pack()
+label.place(relx=0.5, rely=0.5,anchor="center" )
 
-
-
-def Start():
-    print("Button clicked!")
-
-
-
-#creating a button to go to the next page
-button = tk.Button(root,
-                   text="START",
-                   command = Start(),
-                   activebackground="light gray",
-                   activeforeground="white",
-                   anchor="center",
-                   bd=3,
-                   bg="#122522",
-                   cursor="hand2",
-                   disabledforeground="gray",
-                   fg="white",
-                   font=("Telegraf", 30),
-                   height=2,
-                   highlightbackground="black",
-                   highlightcolor = "green",
-                   highlightthickness=2,
-                   justify="center",
-                   overrelief="raised",
-                   padx=10,
-                   pady=10,
-                   width=10,
-                   wraplength=100)
-button.pack()
-
-
-
-
-
+button=tk.Button(root, text="Continue")
+button.pack(pady=100, padx=100,     )
+#placing the buttons positon
+button.place(x=400, y=500)
 
 
 
