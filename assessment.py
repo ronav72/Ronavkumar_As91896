@@ -2,11 +2,21 @@ import tkinter as tk
 from PIL import Image, ImageTk
 names=[] #this will keep track of players names
 
-#creating a class (a class is a blue print or template which is used to create objects)
+#creating a class (a class is a blueprint or template which is used to create objects)
 
 class Homepage:
-    def __init__(self,parent):
-    self.quiz_frame = tk.Frame (parent, padx=100, pady=100)
+    def __init__(self, parent):
+        self.quiz_frame = tk.Frame (parent, padx=100, pady=100)
+        self.quiz_frame.grid()
+#text to display above the entry box
+        self.user_label= tk.Label (self.quiz_frame,text="enter your name", font=("Tw Cen Mt", "16"))
+        self.user_label.grid()
+#creating a entry box for the user to enter their name
+        self.entry_box = tk.Entry(self.quiz_frame)
+        self.entry_box.grid()
+#making a start button for when the user is finished entering their name, they are able to start the program and go the next page
+        self.start_button = tk.Button(self.quiz_frame)
+        self.start_button.grid()
 
 
 
@@ -16,9 +26,7 @@ class Homepage:
 
 
 
-
-
-    root = tk.Tk()
+root = tk.Tk()
 
 #opens image
 image = Image.open("Intro image without button.png")
@@ -44,11 +52,7 @@ root.geometry("850x650")
 
 
 
-#creating button to continue to the next page
-button=tk.Button(root, text="Continue",font="Cabin", height=2, width=7, bg="light blue")
-button.pack(pady=100, padx=100)
-#placing the buttons positon
-button.place(x=375, y=500)
+
 
 
 
