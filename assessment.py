@@ -7,7 +7,7 @@ names=[] #this will keep track of players names
 class Homepage:
     def __init__(self, parent):
         self.quiz_frame = tk.Frame (parent, padx=100, pady=100)
-        self.quiz_frame.grid()
+        self.quiz_frame.place(relx=0.5,rely=0.5,anchor="center")
 
 #text to display above the entry box
         self.user_label= tk.Label (self.quiz_frame,text="enter your name", font=("Tw Cen Mt", "16"))
@@ -20,23 +20,23 @@ class Homepage:
 
 
 #making a start button for when the user is finished entering their name, they are able to start the program and go the next page
-        self.start_button = tk.Button(self.quiz_frame)
+        self.start_button = tk.Button(self.quiz_frame, text="START",command=self.name_collector)
         self.start_button.grid()
 
 
-def name_collector(self):
-    global name
-    name = self.entry_box.get()
-    names.append(name)
-    self.quiz_frame.destroy()
-    self.entry_box(root)
+    def name_collector(self):
+        global name
+        name = self.entry_box.get()
+        names.append(name)
+        self.quiz_frame.destroy()
+        self.entry_box(root)
 
 
 
 
 
-
-root = tk.Tk()
+if __name__ =="__main__":
+    root = tk.Tk()
 
 #opens image
 image = Image.open("Intro image without button.png")
@@ -58,7 +58,7 @@ root.title("New Zealand History Quiz")
 #setting geometry of gui window
 root.geometry("850x650")
 
-
+NewZealand_instance =Homepage(root)
 
 
 
