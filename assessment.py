@@ -2,6 +2,14 @@ import tkinter as tk
 from PIL import Image, ImageTk
 names=[] #this will keep track of players names
 
+
+quiz_data = [
+    {"question": "When did Moari first arrive in New Zealand?", "choices": ["1250 CE", "3000bc", "1875", "1920"], "answer": "1250 CE"},
+    {"question": "How many tourists lost their lives from the white island volcano eruption?", "choices": ["22 people", "25 people", "1875", "1920"],"answer": "1250 CE"},
+
+]
+
+
 #creating a class (a class is a blueprint or template which is used to create objects)
 
 class Homepage:
