@@ -44,9 +44,9 @@ label.place(relx=0.5, rely=0.5, anchor="center")
 root.title("New Zealand History Quiz")
 
 #setting geometry of gui window
-root.geometry("850x650")
+root.geometry("1200x650")
 
-NewZealand_instance =Homepage(root)
+
 
 
 
