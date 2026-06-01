@@ -28,15 +28,17 @@ root = tk.Tk()
 
 #opens image
 image = Image.open("Intro image without button.png")
-resized_image = image.resize((850, 650))
+
 # converts the image into a format Tkinter can understand
-img = ImageTk.PhotoImage(resized_image)
+img = ImageTk.PhotoImage(image)
 label = tk.Label(image=img)
 # creating label that holds widget inside the window
 label.image = img
-# label.pack displays that label inside the window
-label.place(relx=0.5, rely=0.5, anchor="center")
+#this makes the user unable to resize the height and width
+root.resizable( width= "false", height="false")
 
+# label.pack displays that label inside the window
+label.pack()
 
 
 
