@@ -23,41 +23,8 @@ questions_answers = [
 ]
 
 
-#creating a class (a class is a blueprint or template which is used to create objects)
 
-class Homepage:
-    def __init__(self, parent):
-        self.quiz_frame = tk.Frame (parent, padx=100, pady=100)
-        self.quiz_frame.place(relx=0.5,rely=0.5,anchor="center")
-
-#text to display above the entry box
-        self.user_label= tk.Label (self.quiz_frame,text="enter your name", font=("Tw Cen Mt", "16"))
-        self.user_label.grid()
-
-
-#creating a entry box for the user to enter their name
-        self.entry_box = tk.Entry(self.quiz_frame)
-        self.entry_box.grid()
-
-
-#making a start button for when the user is finished entering their name, they are able to start the program and go the next page
-        self.start_button = tk.Button(self.quiz_frame, text="START",command=self.name_collector)
-        self.start_button.grid()
-
-
-    def name_collector(self):
-        global name
-        name = self.entry_box.get()
-        names.append(name)
-        self.quiz_frame.destroy()
-        self.entry_box(root)
-
-
-
-
-
-if __name__ =="__main__":
-    root = tk.Tk()
+root = tk.Tk()
 
 #opens image
 image = Image.open("Intro image without button.png")
