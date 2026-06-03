@@ -48,6 +48,10 @@ root.title("New Zealand History Quiz")
 #setting geometry of gui window
 root.geometry("1200x650")
 
+#adding an entry box for the user to enter their name
+entry_box = tk.Entry (root)
+entry_box.place(relx=0.5, rely=0.5, anchor="center")
+
 
 
 
