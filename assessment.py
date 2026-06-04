@@ -49,13 +49,18 @@ root.title("New Zealand History Quiz")
 root.geometry("1200x650")
 
 
+
+
+entrybox_text = tk.Label(root, text="Please enter your name in the box below")
+entrybox_text.place(relx=0.38, rely=0.5)
 #adding an entry box for the user to enter their name
 entry_box = tk.Entry (root, bd=2.5, width=30)
-entry_box.place(relx=0.47, rely=0.58, anchor="center")
+entry_box.place(relx=0.47, rely=0.58, anchor="center")# placing it in the center
 
 #adding an image as a button for my homepage
 entry_button = tk.PhotoImage (file="homepage start button.png")
 button =tk.Button(root, image=entry_button)
+#placing the button in the center, just below the entry box
 button.place(relx=0.47, rely=0.75, anchor="center")
 
 
