@@ -49,7 +49,14 @@ root.title("New Zealand History Quiz")
 root.geometry("1200x650")
 
 
+#adding an entry box for the user to enter their name
+entry_box = tk.Entry (root, bd=2.5, width=30)
+entry_box.place(relx=0.47, rely=0.58, anchor="center")
 
+#adding an image as a button for my homepage
+entry_button = tk.PhotoImage (file="homepage start button.png")
+button =tk.Button(root, image=entry_button)
+button.place(relx=0.47, rely=0.75, anchor="center")
 
 
 
