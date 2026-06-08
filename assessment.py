@@ -56,15 +56,21 @@ button =tk.Button(root, image=entry_button)
 #placing the button in the center, just below the entry box
 button.place(relx=0.47, rely=0.73, anchor="center")
 
+
+#this displays a text above the entry box saying please enter your username in the box below
+text_entrybox = tk.Label(root, text="Please enter your username in the box below")
+text_entrybox.place(relx=0.38, rely=0.5)
+
+
 #storing the users name
 def valid_user():
     name = names_entrybox.get()
-    if name:
-        names.append (name)
+    if any(char.isdigit() for char in names):
+        text_entrybox.config(text="You can not have any numbers in your name", fg="red")
 
 
-text_entrybox = tk.Label(root, text="Please enter your username in the box below")
-text_entrybox.place(relx=0.38, rely=0.5)
+
+
 #adding an entry box for the user to enter their name
 names_entrybox = tk.Entry (root, bd=2.5, width=30)
 names_entrybox.place(relx=0.47, rely=0.58, anchor="center")# placing it in the center
