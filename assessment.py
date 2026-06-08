@@ -50,23 +50,30 @@ root.geometry("1200x650")
 
 
 
-
-entrybox_text = tk.Label(root, text="Please enter your username in the box below")
-entrybox_text.place(relx=0.38, rely=0.5)
-#adding an entry box for the user to enter their name
-entry_box = tk.Entry (root, bd=2.5, width=30)
-entry_box.place(relx=0.47, rely=0.58, anchor="center")# placing it in the center
-
 #adding an image as a button for my homepage
 entry_button = tk.PhotoImage (file="homepage button.png")
 button =tk.Button(root, image=entry_button)
 #placing the button in the center, just below the entry box
 button.place(relx=0.47, rely=0.73, anchor="center")
 
-
-
+#storing the users name
 def valid_user():
-    names = entry_box.get()
+    name = names_entrybox.get()
+    if name:
+        names.append (name)
+
+
+text_entrybox = tk.Label(root, text="Please enter your username in the box below")
+text_entrybox.place(relx=0.38, rely=0.5)
+#adding an entry box for the user to enter their name
+names_entrybox = tk.Entry (root, bd=2.5, width=30)
+names_entrybox.place(relx=0.47, rely=0.58, anchor="center")# placing it in the center
+button.config(command=valid_user) #checking the users name when clicking the button
+
+names_entrybox.bind("Return", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
+
+
+
 
 
 
