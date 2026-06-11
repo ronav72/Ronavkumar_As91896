@@ -51,7 +51,7 @@ root.geometry("1200x650")
 
 
 #adding an image as a button for my homepage
-entry_button = tk.PhotoImage (file="homepage button.png")
+entry_button = tk.PhotoImage (file="homepage start button.png ")
 button =tk.Button(root, image=entry_button)
 #placing the button in the center, just below the entry box
 button.place(relx=0.47, rely=0.73, anchor="center")
@@ -67,7 +67,8 @@ def valid_user():
     name = names_entrybox.get()
     if any(char.isdigit() for char in names):
         text_entrybox.config(text="You can not have any numbers in your name", fg="red")
-
+    elif name.strip()=="":
+        text_entrybox.config(text="Please enter your name", fg="red")
 
 
 
