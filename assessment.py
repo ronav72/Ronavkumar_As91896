@@ -70,6 +70,9 @@ def valid_user():
     elif name.strip()=="":
         text_entrybox.config(text="Please enter your name", fg="red")
 
+    else: text_entrybox.config(text=f"welcome to the quiz", fg="green")
+root.after(2000, questions_answers  )
+
 
 
 #adding an entry box for the user to enter their name
@@ -80,7 +83,7 @@ button.config(command=valid_user) #checking the users name when clicking the but
 names_entrybox.bind("Return", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
 
 
-
+def questions_answers
 
 
 
