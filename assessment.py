@@ -1,4 +1,6 @@
 import tkinter as tk
+from tkinter import PhotoImage
+
 from PIL import Image, ImageTk
 names=[] #this will keep track of players names
 
@@ -66,13 +68,17 @@ text_entrybox.place(relx=0.38, rely=0.5)
 def valid_user():
     name = names_entrybox.get()
     if any(char.isdigit() for char in name):
-        text_entrybox.config(text="You can not have any numbers in your name", fg="red") #if user enters their name with numbers in it, it will show an error message
+        text_entrybox.config(text="You can not have any numbers in your name", fg="red")
+        #if user enters their name with numbers in it, it will show an error message
     elif name.strip()=="":
-        text_entrybox.config(text="Please enter your name", fg="red") #if user doesnt enter their name and just clicks submit then it will show a error message
+        text_entrybox.config(text="Please enter your name", fg="red")
+        #if user doesn't enter their name and just clicks submit then it will show a error message
 
-    else: text_entrybox.config(text=f"welcome to the quiz", fg="green") #if the users name meets the requirements then it will take them to the next page
-    button.congig(command=lambda:None)
-root.after(2000, questions_answers  )
+    else: text_entrybox.config(text=f"welcome to the quiz", fg="green")
+    #if the users name meets the requirements then it will take them to the next page
+    button.config(command=lambda:None)
+root.after(2000, questions_answers)
+#program wait 2 seconds before opening a new tab
 
 
 
@@ -84,6 +90,16 @@ button.config(command=valid_user) #checking the users name when clicking the but
 names_entrybox.bind("Return", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
 
 
+
+
+
+
+def questions_answers():#creating the second component of the quiz
+    image =Image.open("questions page 1.png")
+    img= ImageTk.PhotoImage(image)
+    label.image=img
+    root.resizable (heihgt="false", width="false")
+    label.pack()
 
 
 root.mainloop()    #root.mainloop keeps the window open for events to happen
