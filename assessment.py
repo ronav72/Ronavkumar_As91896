@@ -65,12 +65,13 @@ text_entrybox.place(relx=0.38, rely=0.5)
 #storing the users name
 def valid_user():
     name = names_entrybox.get()
-    if any(char.isdigit() for char in names):
-        text_entrybox.config(text="You can not have any numbers in your name", fg="red")
+    if any(char.isdigit() for char in name):
+        text_entrybox.config(text="You can not have any numbers in your name", fg="red") #if user enters their name with numbers in it, it will show an error message
     elif name.strip()=="":
-        text_entrybox.config(text="Please enter your name", fg="red")
+        text_entrybox.config(text="Please enter your name", fg="red") #if user doesnt enter their name and just clicks submit then it will show a error message
 
-    else: text_entrybox.config(text=f"welcome to the quiz", fg="green")
+    else: text_entrybox.config(text=f"welcome to the quiz", fg="green") #if the users name meets the requirements then it will take them to the next page
+    button.congig(command=lambda:None)
 root.after(2000, questions_answers  )
 
 
@@ -83,9 +84,6 @@ button.config(command=valid_user) #checking the users name when clicking the but
 names_entrybox.bind("Return", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
 
 
-def questions_answers
 
 
-
-#root.mainloop keeps the window open for events to happen
-root.mainloop()
+root.mainloop()    #root.mainloop keeps the window open for events to happen
