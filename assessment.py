@@ -1,9 +1,11 @@
 import tkinter as tk
+from tkinter import PhotoImage
+
 from PIL import Image, ImageTk
 names=[] #this will keep track of players names
 
 #this is the questions and answers that the user will see / be asked in the second page
-questions_answers = [
+questions = [
     {"question": "When did Moari first arrive in New Zealand?", "choices": ["1250 CE", "3000bc", "1875", "1920"], "answer": "1250 CE"},
     {"question": "How many tourists lost their lives from the white island volcano eruption?", "choices": ["22 people", "25 people", "43 people", "67 people"],"answer": "22 people lost their lives, and about 25 others were injured as well"},
     {"question": "During the 2023 flooding, there was a record-breaking amount of rainfall in the upper north island region. How much rainfall was recorded to be spread across the North Island?",
@@ -62,13 +64,30 @@ text_entrybox = tk.Label(root, text="Please enter your username in the box below
 text_entrybox.place(relx=0.38, rely=0.5)
 
 
+
+def questions_answers():#creating the second component of the quiz
+    image =Image.open("questions page 1.png")
+    img= ImageTk.PhotoImage(image)
+    label.image=img
+    root.resizable (height="false", width="false")
+    label.pack()
+
+
 #storing the users name
 def valid_user():
     name = names_entrybox.get()
-    if any(char.isdigit() for char in names):
+    if any(char.isdigit() for char in name):
         text_entrybox.config(text="You can not have any numbers in your name", fg="red")
+        #if user enters their name with numbers in it, it will show an error message
     elif name.strip()=="":
         text_entrybox.config(text="Please enter your name", fg="red")
+        #if user doesn't enter their name and just clicks submit then it will show a error message
+
+    else: text_entrybox.config(text=f"welcome to the quiz", fg="green")
+    #if the users name meets the requirements then it will take them to the next page
+    button.config(command=lambda:None)
+root.after(2000, questions_answers)
+#program wait 2 seconds before opening a new tab
 
 
 
@@ -84,5 +103,7 @@ names_entrybox.bind("Return", lambda event: valid_user()) # this makes it so whe
 
 
 
-#root.mainloop keeps the window open for events to happen
-root.mainloop()
+
+
+
+root.mainloop()    #root.mainloop keeps the window open for events to happen
