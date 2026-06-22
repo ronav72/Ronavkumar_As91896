@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-names=[] #this will keep track of players names
+username=[] #this will keep track of players names
 
 #this is the questions and answers that the user will see / be asked in the second page
 questions_answers = [
@@ -20,8 +20,7 @@ questions_answers = [
     {"question": " Bungee jumping was originally made in New Zealand. It is when you jump off from a high elevation down towards the ground with an elastic cord connected. Who is responsible for this invention?",
      "choices": ["Malachy Goodman", "Carlo Phillip", "A.J Hackett", "Henery O Donald"],
      "answer": "A.J Hackett"},
-]
-
+    ]
 
 
 root = tk.Tk()
@@ -35,7 +34,7 @@ label = tk.Label(image=img)
 # creating label that holds widget inside the window
 label.image = img
 #this makes the user unable to resize the height and width
-root.resizable( width= "false", height="false")
+root.resizable(height="false", width="false")
 
 # label.pack displays that label inside the window
 label.pack()
@@ -62,26 +61,41 @@ text_entrybox = tk.Label(root, text="Please enter your username in the box below
 text_entrybox.place(relx=0.38, rely=0.5)
 
 
-#storing the users name
+#storing the users name#storing the users name
 def valid_user():
     name = names_entrybox.get()
-    if any(char.isdigit() for char in names):
+    if any(char.isdigit() for char in name):
         text_entrybox.config(text="You can not have any numbers in your name", fg="red")
+        #if user enters their name with numbers in it, it will show an error message
     elif name.strip()=="":
         text_entrybox.config(text="Please enter your name", fg="red")
+        #if user doesn't enter their name and just clicks submit then it will show a error message
 
+    else: text_entrybox.config(text=f"welcome to the quiz", fg="green")
+    #if the users name meets the requirements then it will take them to the next page
+    button.config(command=lambda:None)
+root.after(2000, questions_answers)
+#program wait 2 seconds before opening a new tab
 
 
 #adding an entry box for the user to enter their name
 names_entrybox = tk.Entry (root, bd=2.5, width=30)
 names_entrybox.place(relx=0.47, rely=0.58, anchor="center")# placing it in the center
-button.config(command=valid_user) #checking the users name when clicking the button
+button.config(command=valid_user()) #checking the users name when clicking the button
 
 names_entrybox.bind("Return", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
 
 
-
-
+def questions_answers():#creating the second component of the quiz
+    image =Image.open("questions page 1.png")
+    img= ImageTk.PhotoImage(image)
+    label.image=img
+    root.resizable (height="false", width="false")
+    label.pack()
+Window_one=tk.Toplevel(root)
+Window_one.title("Main page")
+Window_one.geometry("1200x650")
+Window_one.resizable(False,False)
 
 
 #root.mainloop keeps the window open for events to happen
