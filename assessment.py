@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-username=[] #this will keep track of players names
+username =[] #this will keep track of players names
 
 #this is the questions and answers that the user will see / be asked in the second page
 questions_answers = [
@@ -73,29 +73,27 @@ def valid_user():
 
     else: text_entrybox.config(text=f"welcome to the quiz", fg="green")
     #if the users name meets the requirements then it will take them to the next page
+    root.after(2000, quiz_start_page)
     button.config(command=lambda:None)
-root.after(2000, questions_answers)
+
 #program wait 2 seconds before opening a new tab
 
 
 #adding an entry box for the user to enter their name
 names_entrybox = tk.Entry (root, bd=2.5, width=30)
 names_entrybox.place(relx=0.47, rely=0.58, anchor="center")# placing it in the center
-button.config(command=valid_user()) #checking the users name when clicking the button
+button.config(command=valid_user ) #checking the users name when clicking the button
 
 names_entrybox.bind("Return", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
 
 
-def questions_answers():#creating the second component of the quiz
+def quiz_start_page():#creating the second component of the quiz
     image =Image.open("questions page 1.png")
     img= ImageTk.PhotoImage(image)
     label.image=img
     root.resizable (height="false", width="false")
     label.pack()
-Window_one=tk.Toplevel(root)
-Window_one.title("Main page")
-Window_one.geometry("1200x650")
-Window_one.resizable(False,False)
+
 
 
 #root.mainloop keeps the window open for events to happen
