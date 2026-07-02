@@ -73,7 +73,7 @@ def valid_user():
 
     else: text_entrybox.config(text=f"welcome to the quiz", fg="green")
     #if the users name meets the requirements then it will take them to the next page
-    root.after(2000, quiz_start_page)
+    root.after(2000, open_questions_page)
     button.config(command=lambda:None)
 
 #program wait 2 seconds before opening a new tab
@@ -87,12 +87,12 @@ button.config(command=valid_user ) #checking the users name when clicking the bu
 names_entrybox.bind("Return", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
 
 
-def quiz_start_page():#creating the second component of the quiz
-    image =Image.open("questions page 1.png")
-    img= ImageTk.PhotoImage(image)
-    label.image=img
-    root.resizable (height="false", width="false")
-    label.pack()
+def open_questions_page():#creating the second component of the quiz
+    start_page= tk.Toplevel() #creates the questions and answers page
+    start_page.title("questions")
+    start_page.geometry("1200x650")
+
+
 
 
 
