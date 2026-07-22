@@ -57,11 +57,17 @@ button.place(relx=0.47, rely=0.73, anchor="center")
 
 
 #this displays a text above the entry box saying please enter your username in the box below
+names_entrybox = tk.Entry (root, bd=2.5, width=30)
 text_entrybox = tk.Label(root, text="Please enter your username in the box below")
 text_entrybox.place(relx=0.38, rely=0.5)
 
+def open_questions_page():#creating the second component of the quiz
+    start_page= tk.Toplevel() #creates the questions and answers page
+    start_page.title("Questions")
+    start_page.geometry("1200x650")
 
-#storing the users name#storing the users name
+
+#storing the users name
 def valid_user():
     name = names_entrybox.get()
     if any(char.isdigit() for char in name):
@@ -80,17 +86,18 @@ def valid_user():
 
 
 #adding an entry box for the user to enter their name
-names_entrybox = tk.Entry (root, bd=2.5, width=30)
+
 names_entrybox.place(relx=0.47, rely=0.58, anchor="center")# placing it in the center
+
+
 button.config(command=valid_user ) #checking the users name when clicking the button
 
-names_entrybox.bind("Return", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
 
 
-def open_questions_page():#creating the second component of the quiz
-    start_page= tk.Toplevel() #creates the questions and answers page
-    start_page.title("questions")
-    start_page.geometry("1200x650")
+names_entrybox.bind("<Return>", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
+
+
+
 
 
 
