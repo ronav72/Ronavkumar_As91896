@@ -62,6 +62,7 @@ text_entrybox = tk.Label(root, text="Please enter your username in the box below
 text_entrybox.place(relx=0.38, rely=0.5)
 
 def open_questions_page():#creating the second component of the quiz
+    root.withdraw() #root.withdraw makes it so when the users name matches the requirements it opens a new window and closes the previous window
     start_page= tk.Toplevel() #creates the questions and answers page
     start_page.title("Questions")
     start_page.geometry("1200x650")
