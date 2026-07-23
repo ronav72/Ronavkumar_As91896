@@ -1,101 +1,92 @@
 import tkinter as tk
+from tkinter import PhotoImage
 from PIL import Image, ImageTk
-username =[] #this will keep track of players names
 
-#this is the questions and answers that the user will see / be asked in the second page
+
+names = []  # This will keep track of players' names
+
+
+# This is the questions and answers that the user will see / be asked in the second page
 questions_answers = [
-    {"question": "When did Moari first arrive in New Zealand?", "choices": ["1250 CE", "3000bc", "1875", "1920"], "answer": "1250 CE"},
-    {"question": "How many tourists lost their lives from the white island volcano eruption?", "choices": ["22 people", "25 people", "43 people", "67 people"],"answer": "22 people lost their lives, and about 25 others were injured as well"},
-    {"question": "During the 2023 flooding, there was a record-breaking amount of rainfall in the upper north island region. How much rainfall was recorded to be spread across the North Island?",
-     "choices": ["278mm", "539mm", "300mm", "265mm"],"answer": "265mm"},
-    {"question": "What is the name of the largest wildfire in New Zealand?", "choices": ["Lake Ohau fire", "Pigeon Valley Fire", "Lake Pukaki", "Taranaki Wildfire"],
-     "answer": "Lake Ohau fire"},
-    {"question": "On 28 November 1979, an Air New Zealand aircraft crashed into the lower slopes of Mt Erebus with an carrying amount of 257 people on board including crew , named the Mount Erebus disaster. How many people died from this crash?",
-     "choices": ["All 257 passengers", "200 passengers", "158 passengers", "No one, everyone survived"], "answer": "All 257 passengers"},
-    {"question": "Who signed the Treaty of Waitangi from the British side?", "choices": ["Andrew Gibson", "Gilbert Walker", "Richie Shepard", "William Hobson"], "answer": "William Hobson"},
-    {"question": "A New Zealander was the first person to climb Mt Everest. He later appeared on the 5$ bill. What was this New Zealander's name?", "choices": ["Taikawaititi junior", "Lewis Dod", "George Calvin", "Edmund Hillary"],
-     "answer": "Edmund Hillary"},
-    {"question": "The largest lake in New Zealand is Lake Taupo. It was formed 25,000 years ago. How was it made?", "choices": ["A meteor hit it and created a massive hole", "Taupo Volcano", " A series of volcanic eruptions caused the lake to form", "Many people dug it up"],
-     "answer": " A series of volcanic eruptions caused the lake to form"},
-    {"question": " Bungee jumping was originally made in New Zealand. It is when you jump off from a high elevation down towards the ground with an elastic cord connected. Who is responsible for this invention?",
-     "choices": ["Malachy Goodman", "Carlo Phillip", "A.J Hackett", "Henery O Donald"],
-     "answer": "A.J Hackett"},
-    ]
+   {"question 1": "When did Moari first arrive in New Zealand?", "choices": ["1250 CE", "3000bc", "1875", "1920"], "answer": "1250 CE"},
+   {"question 2": "How many tourists lost their lives from the white island volcano eruption?", "choices": ["22 people", "25 people", "43 people", "67 people"], "answer": "22 people lost their lives, and about 25 others were injured as well"},
+   {"question 3": "During the 2023 flooding, there was a record-breaking amount of rainfall in the upper north island region. How much rainfall was recorded to be spread across the North Island?", "choices": ["278mm", "539mm", "300mm", "265mm"], "answer": "265mm"},
+   {"question 4": "What is the name of the largest wildfire in New Zealand?", "choices": ["Lake Ohau fire", "Pigeon Valley Fire", "Lake Pukaki", "Taranaki Wildfire"], "answer": "Lake Ohau fire"},
+   {"question 5": "On 28 November 1979, an Air New Zealand aircraft crashed into the lower slopes of Mt Erebus with an carrying amount of 257 people on board including crew , named the Mount Erebus disaster. How many people died from this crash?", "choices": ["All 257 passengers", "200 passengers", "158 passengers", "No one, everyone survived"], "answer": "All 257 passengers"},
+   {"question 6": "Who signed the Treaty of Waitangi from the British side?", "choices": ["Andrew Gibson", "Gilbert Walker", "Richie Shepard", "William Hobson"], "answer": "William Hobson"},
+   {"question 7": "A New Zealander was the first person to climb Mt Everest. He later appeared on the 5$ bill. What was this New Zealander's name?", "choices": ["Taikawaititi junior", "Lewis Dod", "George Calvin", "Edmund Hillary"], "answer": "Edmund Hillary"},
+   {"question 8": "The largest lake in New Zealand is Lake Taupo. It was formed 25,000 years ago. How was it made?", "choices": ["A meteor hit it and created a massive hole", "Taupo Volcano", " A series of volcanic eruptions caused the lake to form", "Many people dug it up"], "answer": " A series of volcanic eruptions caused the lake to form"},
+   {"question 9": " Bungee jumping was originally made in New Zealand. It is when you jump off from a high elevation down towards the ground with an elastic cord connected. Who is responsible for this invention?", "choices": ["Malachy Goodman", "Carlo Phillip", "A.J Hackett", "Henery O Donald"], "answer": "A.J Hackett"},
+]
 
 
 root = tk.Tk()
 
-#opens image
+
+# Opens image
 image = Image.open("Intro image without button.png")
 
-# converts the image into a format Tkinter can understand
+
+# Converts the image into a format Tkinter can understand
 img = ImageTk.PhotoImage(image)
 label = tk.Label(image=img)
-# creating label that holds widget inside the window
+# Creating label that holds widget inside the window
 label.image = img
-#this makes the user unable to resize the height and width
-root.resizable(height="false", width="false")
+# This makes the user unable to resize the height and width
+root.resizable(width="false", height="false")
 
-# label.pack displays that label inside the window
+
+# Label.pack displays that label inside the window
 label.pack()
 
 
-
-#title of gui window
+# Title of gui window
 root.title("New Zealand History Quiz")
 
-#setting geometry of gui window
+
+# Setting geometry of gui window
 root.geometry("1200x650")
 
 
-
-#adding an image as a button for my homepage
-entry_button = tk.PhotoImage (file="homepage start button.png ")
-button =tk.Button(root, image=entry_button)
-#placing the button in the center, just below the entry box
+# Adding an image as a button for my homepage
+entry_button = tk.PhotoImage(file="homepage start button.png")
+button = tk.Button(root, image=entry_button)
+# Placing the button in the center, just below the entry box
 button.place(relx=0.47, rely=0.73, anchor="center")
 
 
-#this displays a text above the entry box saying please enter your username in the box below
-names_entrybox = tk.Entry (root, bd=2.5, width=30)
+# This displays a text above the entry box saying please enter your username in the box below
+names_entrybox = tk.Entry(root, bd=2.5, width=30)
 text_entrybox = tk.Label(root, text="Please enter your username in the box below")
 text_entrybox.place(relx=0.38, rely=0.5)
 
-def open_questions_page():#creating the second component of the quiz
-    root.withdraw() #root.withdraw makes it so when the users name matches the requirements it opens a new window and closes the previous window
-    start_page= tk.Toplevel() #creates the questions and answers page
-    start_page.title("Questions")
-    start_page.geometry("1200x650")
 
 
-#storing the users name
+
+def open_questions_page():  # Creating the second component of the quiz
+   root.withdraw() #root.withdraw makes it so when the users name matches the requirements it opens a new window and closes the previous window
+   start_page = tk.Toplevel()  # Creates the questions and answers page
+   start_page.title("Questions")
+   start_page.geometry("1200x650")
+   questions_1 = "question 1"
+
+
+
+# Storing the users name
 def valid_user():
-    name = names_entrybox.get()
-    if any(char.isdigit() for char in name):
-        text_entrybox.config(text="You can not have any numbers in your name", fg="red")
-        #if user enters their name with numbers in it, it will show an error message
-    elif name.strip()=="":
-        text_entrybox.config(text="Please enter your name", fg="red")
-        #if user doesn't enter their name and just clicks submit then it will show a error message
-
-    else: text_entrybox.config(text=f"welcome to the quiz", fg="green")
-    #if the users name meets the requirements then it will take them to the next page
-    root.after(2000, open_questions_page)
-    button.config(command=lambda:None)
-
-#program wait 2 seconds before opening a new tab
-
-
-#adding an entry box for the user to enter their name
-
-names_entrybox.place(relx=0.47, rely=0.58, anchor="center")# placing it in the center
-
-
-button.config(command=valid_user ) #checking the users name when clicking the button
-
-
-
-names_entrybox.bind("<Return>", lambda event: valid_user()) # this makes it so when the user presses enter it checks their name
+   name = names_entrybox.get()
+   if any(char.isdigit() for char in name):
+       text_entrybox.config(text="You can not have any numbers in your name", fg="red")
+       # If user enters their name with numbers in it, it will show an error message
+   elif name.strip() == "":
+       text_entrybox.config(text="Please enter your name", fg="red")
+       # If user doesn't enter their name and just clicks submit then it will show an error message
+   else:
+       text_entrybox.config(text="welcome to the quiz", fg="green")
+       # If the users name meets the requirements then it will take them to the next page
+       root.after(2000, open_questions_page)
+       button.config(command=lambda: None)
+       # Program waits 2 seconds before opening a new tab
 
 
 
@@ -104,5 +95,18 @@ names_entrybox.bind("<Return>", lambda event: valid_user()) # this makes it so w
 
 
 
-#root.mainloop keeps the window open for events to happen
+# Placing entry box in the center
+names_entrybox.place(relx=0.47, rely=0.58, anchor="center")
+
+
+# Checking the users name when clicking the button
+button.config(command=valid_user)
+
+
+# This makes it so when the user presses enter it checks their name
+names_entrybox.bind("<Return>", lambda event: valid_user())
+
+
+# Root.mainloop keeps the window open for events to happen
 root.mainloop()
+
