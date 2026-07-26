@@ -88,16 +88,16 @@ def open_questions_page():  # Creating the second component of the quiz
    options = question_1["choices 1"]
 
    button_1 = tk.Button (start_page, text=options [0], width=30)
-   button_1.place(relx=0.45,rely=0.65, anchor="center")
+   button_1.place(relx=0.37,rely=0.73, anchor="center")
 
    button_2 = tk.Button (start_page, text=options [1], width=30)
-   button_2.place(relx=0.45, rely=0.70, anchor="center")
+   button_2.place(relx=0.37, rely=0.78, anchor="center")
 
    button_3 = tk.Button(start_page, text=options[2], width=35)
-   button_3.place(relx=0.65, rely=0.65, anchor="center")
+   button_3.place(relx=0.60, rely=0.73, anchor="center")
 
    button_4 = tk.Button(start_page, text=options[3], width=35)
-   button_4.place(relx=0.65, rely=0.70, anchor="center")
+   button_4.place(relx=0.60, rely=0.78, anchor="center")
 
 
 # Storing the users name
