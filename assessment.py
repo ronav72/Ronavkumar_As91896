@@ -112,8 +112,8 @@ def open_questions_page():  # Creating the second component of the quiz
    button_4 = tk.Button(start_page, text=options[3], width=35, command=lambda:answer_check(options [3]))
    button_4.place(relx=0.60, rely=0.78, anchor="center")
 
-   label_responce = tk.Label(start_page, text="", font=("Roboto", 35, "bold"))
-   label_responce.place(relx=0.5, rely=0.45, anchor="center")
+   label_responce = tk.Label(start_page, text="", font=("Roboto", 24, "bold"))
+   label_responce.place(relx=0.5, rely=0.87, anchor="center")
 
 
 # Storing the users name
