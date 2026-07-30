@@ -12,34 +12,34 @@ relevant_question_index = 0
 # This is the questions and answers that the user will see / be asked in the second page
 questions_answers = [
    {"question 1": "When did Moari first arrive in New Zealand?", "choices 1": ["1250 CE", "3000bc", "1875", "1920"],
-    "answer 1": "1250 CE"},
+    "answer 1": "1250 CE", "background 1":"question one background.png"},
    {"question 2": "How many tourists lost their lives from the white island volcano eruption?",
     "choices 2": ["22 people", "25 people", "43 people", "67 people"],
-    "answer 2": "22 people lost their lives, and about 25 others were injured as well"},
+    "answer 2": "22 people lost their lives, and about 25 others were injured as well", "background 2":"question two background.png"},
    {
        "question 3": "During the 2023 flooding, there was a record-breaking amount of rainfall in the upper north island region. How much rainfall was recorded to be spread across the North Island?",
-       "choices 3": ["278mm", "539mm", "300mm", "265mm"], "answer 3": "265mm"},
+       "choices 3": ["278mm", "539mm", "300mm", "265mm"], "answer 3": "265mm", "background 3":"question three background.png"},
    {"question 4": "What is the name of the largest wildfire in New Zealand?",
     "choices 4": ["Lake Ohau fire", "Pigeon Valley Fire", "Lake Pukaki", "Taranaki Wildfire"],
-    "answer 4": "Lake Ohau fire"},
+    "answer 4": "Lake Ohau fire", "background 4":"question four background.png"},
    {
        "question 5": "On 28 November 1979, an Air New Zealand aircraft crashed into the lower slopes of Mt Erebus with an carrying amount of 257 people on board including crew , named the Mount Erebus disaster. How many people died from this crash?",
        "choices 5": ["All 257 passengers", "200 passengers", "158 passengers", "No one, everyone survived"],
-       "answer 5": "All 257 passengers"},
+       "answer 5": "All 257 passengers", "background 5":"question five background.png"},
    {"question 6": "Who signed the Treaty of Waitangi from the British side?",
     "choices 6": ["Andrew Gibson", "Gilbert Walker", "Richie Shepard", "William Hobson"],
-    "answer 6": "William Hobson"},
+    "answer 6": "William Hobson", "background 6": "question six background.png"},
    {
        "question 7": "A New Zealander was the first person to climb Mt Everest. He later appeared on the 5$ bill. What was this New Zealander's name?",
        "choices 7": ["Taikawaititi junior", "Lewis Dod", "George Calvin", "Edmund Hillary"],
-       "answer 7": "Edmund Hillary"},
+       "answer 7": "Edmund Hillary", "background 7": "question seven background.png"},
    {"question 8": "The largest lake in New Zealand is Lake Taupo. It was formed 25,000 years ago. How was it made?",
     "choices 8": ["A meteor hit it and created a massive hole", "Taupo Volcano",
                   " A series of volcanic eruptions caused the lake to form", "Many people dug it up"],
-    "answer 8": " A series of volcanic eruptions caused the lake to form"},
+    "answer 8": " A series of volcanic eruptions caused the lake to form", "background 8": "question eight background.png"},
    {
        "question 9": " Bungee jumping was originally made in New Zealand. It is when you jump off from a high elevation down towards the ground with an elastic cord connected. Who is responsible for this invention?",
-       "choices 9": ["Malachy Goodman", "Carlo Phillip", "A.J Hackett", "Henery O Donald"], "answer 9": "A.J Hackett"},
+       "choices 9": ["Malachy Goodman", "Carlo Phillip", "A.J Hackett", "Henery O Donald"], "answer 9": "A.J Hackett", "background 9": "question nine background.png"},
 ]
 
 
@@ -106,7 +106,7 @@ def open_questions_page():  # Creating the second component of the quiz
    question_1 = questions_answers[relevant_question_index]
 
 
-   # DYNAMIC FIX: Since each row has a different key number ("question 1", "question 2"),
+
    # we look up the key string using your counter index number dynamically!
    questions_text = question_1[f"question {relevant_question_index + 1}"]
 
@@ -118,7 +118,7 @@ def open_questions_page():  # Creating the second component of the quiz
    options = question_1[f"choices {relevant_question_index + 1}"]
 
 
-   # SUB-FUNCTION A: This moves to the next index layout row
+
    def goto_next_question():
        global relevant_question_index
        relevant_question_index += 1
@@ -126,18 +126,36 @@ def open_questions_page():  # Creating the second component of the quiz
            start_page.destroy()  # Deletes the current page off the screen cleanly
            open_questions_page()  # This runs the questions page function again for the next row
        else:
-           # FIXED STRING FORMATTING TYPO: Cleaned up brackets and parenthetical markers
-           label_responce.config(text=f"You have finished the Quiz! Final Score: {score}/{len(questions_answers)}",
-                                 fg="blue")
-           next_question_button.config(state="disabled")
+
+           start_page.destroy()
+           open_last_page()
 
 
-   # CREATE THE NEXT BUTTON AT THE CORRECT SCOPE DEPTH LEVEL
+   def open_last_page():
+    end_page = tk.Toplevel()
+    end_page.title("Quiz Done")
+    end_page.geometry("1200x650")
+    end_page.resizable(width="false",height="false")
+
+
+    image_end = Image.open("final quiz background.png")
+    img_end = ImageTk.PhotoImage(image_end)
+    label_end_background = tk.Label(end_page, image=img_end)
+    end_page.bg_image = img_end
+    label_end_background.pack()
+
+    player_name = names[-1] if names else "Player"
+
+    final_results_text = f"Congratulations {player_name}!\You have finished the Quiz!\n\nFinal Score: {score} / {len(questions_answers)}"
+
+    results_label = tk.Label( end_page, text=final_results_text, font=("Roboto", 25, "bold"),fg="white",justify="center")
+    results_label.place(relx=0.5, rely=0.5, anchor="center")
+
    next_question_button = tk.Button(start_page, text="Next Question", font=("Helvetica", 20, "bold"),
                                     command=goto_next_question)
 
 
-   # SUB-FUNCTION B: Checks the choices clicked against dataset keys
+
    def answer_check(user_choice):
        global score
        label_responce.place(relx=0.5, rely=0.45, anchor="center")
@@ -157,7 +175,6 @@ def open_questions_page():  # Creating the second component of the quiz
        button_4.config(command=lambda: None)
 
 
-       # Now this correctly displays because the button object was instantiated higher up!
        next_question_button.place(relx=0.5, rely=0.88, anchor="center")
 
 
