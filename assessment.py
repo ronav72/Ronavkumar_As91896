@@ -189,21 +189,17 @@ def open_questions_page():  # Creating the second component of the quiz
        next_question_button.place(relx=0.5, rely=0.88, anchor="center")
 
 
-   button_1 = tk.Button(start_page, text=options, width=30, command=lambda: answer_check(options))
+   button_1 = tk.Button(start_page, text=options[0], width=30, command=lambda: answer_check(options[0]))
    button_1.place(relx=0.37, rely=0.73, anchor="center")
 
-
-   button_2 = tk.Button(start_page, text=options, width=30, command=lambda: answer_check(options))
+   button_2 = tk.Button(start_page, text=options[1], width=30, command=lambda: answer_check(options[1]))
    button_2.place(relx=0.37, rely=0.78, anchor="center")
 
-
-   button_3 = tk.Button(start_page, text=options, width=35, command=lambda: answer_check(options))
+   button_3 = tk.Button(start_page, text=options[2], width=35, command=lambda: answer_check(options[2]))
    button_3.place(relx=0.60, rely=0.73, anchor="center")
 
-
-   button_4 = tk.Button(start_page, text=options, width=35, command=lambda: answer_check(options))
+   button_4 = tk.Button(start_page, text=options[3], width=35, command=lambda: answer_check(options[3]))
    button_4.place(relx=0.60, rely=0.78, anchor="center")
-
 
    label_responce = tk.Label(start_page, text="", font=("Roboto", 24, "bold"), bg="#5A8F9D")
 
